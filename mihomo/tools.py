@@ -1,7 +1,7 @@
 from typing import Final, TypeVar
 
-from .models import Character, StarrailInfoParsed
-from .models.v1 import Character, StarrailInfoParsedV1
+from .models import StarrailInfoParsed
+from .models.v1 import StarrailInfoParsedV1
 
 RawData = TypeVar("RawData")
 ParsedData = TypeVar("ParsedData", StarrailInfoParsed, StarrailInfoParsedV1)
