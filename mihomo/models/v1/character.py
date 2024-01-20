@@ -1,6 +1,6 @@
 from typing import Any
 
-from pydantic import BaseModel, Field, root_validator
+from pydantic import model_validator, BaseModel, Field
 
 from .equipment import LightCone, Relic, RelicSet
 
@@ -136,7 +136,8 @@ class Character(BaseModel):
     stats: list[Stat] = Field(..., alias="property")
     """The list of character's stats"""
 
-    @root_validator(pre=True)
+    @model_validator(mode="before")
+    @classmethod
     def dict_to_list(cls, data: dict[str, Any]):
         # The keys of the original dict is not necessary, so remove them here.
         if isinstance(data, dict) and data.get("relic") is not None:

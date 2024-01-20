@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field, root_validator
+from pydantic import model_validator, BaseModel, Field
 
 
 class Avatar(BaseModel):
@@ -75,7 +75,8 @@ class Player(BaseModel):
     achievements: int = Field(0, alias="achievement_count")
     """Number of achievements unlocked"""
 
-    @root_validator(pre=True)
+    @model_validator(mode="before")
+    @classmethod
     def decompose_space_info(cls, data):
         if isinstance(data, dict):
             space_info = data.get("space_info")
@@ -83,7 +84,8 @@ class Player(BaseModel):
                 data.update(space_info)
         return data
 
-    @root_validator(pre=True)
+    @model_validator(mode="before")
+    @classmethod
     def transform_for_backward_compatibility(cls, data):
         if isinstance(data, dict):
             if "pass_area_progress" in data and "universe_level" not in data:
