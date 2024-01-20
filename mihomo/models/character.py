@@ -1,6 +1,5 @@
-from typing import Any
 
-from pydantic import BaseModel, Field, root_validator
+from pydantic import BaseModel, Field
 
 from .combat import Element, Path, Trace, TraceTreeNode
 from .equipment import LightCone, Relic, RelicSet

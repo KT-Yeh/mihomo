@@ -18,5 +18,5 @@ classifiers = [
 ]
 dependencies = [
   "aiohttp==3.*",
-  "pydantic==1.*",
+  "pydantic==2.*",
 ]
