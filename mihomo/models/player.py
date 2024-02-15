@@ -14,7 +14,7 @@ class ForgottenHall(BaseModel):
 
     Attributes:
         - memory (`int`): The progress of the memory.
-        - memory_of_chaos_id (`int`): The ID of the memory of chaos, or None if not applicable.
+        - memory_of_chaos_id (`int`): The ID of the memory of chaos.
         - memory_of_chaos (`int`): The progress of the memory of chaos, or None if not applicable.
     """
 
@@ -22,7 +22,7 @@ class ForgottenHall(BaseModel):
     """The progress of the memory (level)"""
     memory_of_chaos_id: int = Field(..., alias="chaos_id")
     """The ID of the memory of chaos (chaos_id)"""
-    memory_of_chaos: int = Field(..., alias="chaos_level")
+    memory_of_chaos: int | None = Field(None, alias="chaos_level")
     """The progress of the memory of chaos (chaos_level)"""
 
 
