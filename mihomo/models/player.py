@@ -14,7 +14,7 @@ class ForgottenHall(BaseModel):
 
     Attributes:
         - memory (`int`): The progress of the memory.
-        - memory_of_chaos_id (`int`): The ID of the memory of chaos, or None if not applicable.
+        - memory_of_chaos_id (`int`): The ID of the memory of chaos.
         - memory_of_chaos (`int`): The progress of the memory of chaos, or None if not applicable.
     """
 
