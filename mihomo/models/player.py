@@ -1,4 +1,4 @@
-from pydantic import model_validator, BaseModel, Field
+from pydantic import BaseModel, Field, model_validator
 
 
 class Avatar(BaseModel):
@@ -20,9 +20,9 @@ class ForgottenHall(BaseModel):
 
     memory: int = Field(..., alias="level")
     """The progress of the memory (level)"""
-    memory_of_chaos_id: int = Field(..., alias="chaos_id")
+    memory_of_chaos_id: int | None = Field(..., alias="chaos_id")
     """The ID of the memory of chaos (chaos_id)"""
-    memory_of_chaos: int = Field(..., alias="chaos_level")
+    memory_of_chaos: int | None = Field(..., alias="chaos_level")
     """The progress of the memory of chaos (chaos_level)"""
 
 
